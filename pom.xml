@@ -294,7 +294,7 @@
                 <arg>--should-stop=ifError=FLOW</arg>
                 <arg>-Xplugin:ErrorProne -XepDisableAllChecks -Xep:NullAway:ERROR -XepOpt:NullAway:OnlyNullMarked=true -XepOpt:NullAway:CustomContractAnnotations=org.springframework.lang.Contract -XepOpt:NullAway:JSpecifyMode=true</arg>
               </compilerArgs>
-              <annotationProcessorPaths>
+              <!-- <annotationProcessorPaths>
                 <path>
                   <groupId>com.google.errorprone</groupId>
                   <artifactId>error_prone_core</artifactId>
@@ -305,7 +305,7 @@
                   <artifactId>nullaway</artifactId>
                   <version>${nullaway.version}</version>
                 </path>
-              </annotationProcessorPaths>
+              </annotationProcessorPaths> -->
             </configuration>
           </execution>
         </executions>
