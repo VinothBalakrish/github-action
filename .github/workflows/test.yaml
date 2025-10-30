@@ -21,6 +21,25 @@ jobs:
     runs-on: [git]
     
     steps:
+    - name: Check runner info
+      run: |
+        echo "Runner name: $RUNNER_NAME"
+        echo "Runner OS: $RUNNER_OS"
+        echo "Runner arch: $RUNNER_ARCH"
+        
+    - name: Check installed tools
+      run: |
+        echo "Docker version:"
+        docker --version
+        echo ""
+        echo "kubectl version:"
+        kubectl version --client
+        echo ""
+        echo "Java version:"
+        java -version
+        echo ""
+        echo "Maven version:"
+        mvn -version
     - name: Checkout code
       uses: actions/checkout@v4
     
