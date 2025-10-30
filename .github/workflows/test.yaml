@@ -115,4 +115,13 @@ jobs:
         cache-to: type=registry,ref=${{ env.DOCKER_IMAGE }}:buildcache,mode=max
     
     - name: Image digest
-      run: echo "Image pushed with digest ${{ steps.meta.outputs.tags }}"
+      run: echo "Image pushed with digest ${{ steps.meta.outputs.tags }}"  
+  deploy-to-kubernetes:
+    name: Deploy to Kubernetes
+    needs: build-docker-image
+    runs-on: [git]
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
