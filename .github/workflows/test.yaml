@@ -1,3 +1,4 @@
+
 name: Spring Petclinic CI/CD Pipeline
 
 on:
@@ -32,5 +33,25 @@ jobs:
         distribution: ${{ env.JAVA_DISTRIBUTION }}
         cache: 'maven'
 
+    - name: Verify Java Version
+      run: |
+        echo "JAVA_HOME: $JAVA_HOME"
+        java -version
+        mvn -version
+
     - name: Build with Maven
       run: mvn clean package -DskipTests
+      env:
+        JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
+
+    - name: Run Tests
+      run: mvn test
+      env:
+        JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
+
+    - name: Upload JAR artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: petclinic-jar
+        path: target/*.jar
+        retention-days: 1
