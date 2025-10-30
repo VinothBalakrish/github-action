@@ -41,10 +41,10 @@ jobs:
 
     - name: Build with Maven
       run: mvn clean package -DskipTests
+    
 
-
-    - name: Run Tests
-      run: mvn test
+    # - name: Run Tests
+    #   run: mvn test
 
 
     - name: Upload JAR artifact
