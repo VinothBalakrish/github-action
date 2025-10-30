@@ -19,7 +19,7 @@ env:
 jobs:
   build-and-test:
     name: Build & Test
-    runs-on: [self-hosted, aws-ec2-runner]  # Use array format with labels
+    runs-on: [git]  # Use array format with labels
     
     steps:
     - name: Checkout code
