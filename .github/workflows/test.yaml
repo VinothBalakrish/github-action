@@ -1,0 +1,17 @@
+name: Spring Petclinic CI/CD Pipeline 
+on: 
+  push: 
+    branches:
+      - 'main'
+      - 'master'
+env: 
+  DOCKER_IMAGE: docker.io/vinothbalakrish/petclinic-githubci
+  JAVA_VERSION: '25'
+  JAVA_DISTRIBUTION: 'temurin' 
+
+jobs:
+  build-and-test: 
+    runs-on: aws-ec2-runner 
+    steps:
+      - name: Checkout Code 
+        uses: actions/checkout@v5
