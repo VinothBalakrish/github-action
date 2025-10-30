@@ -40,7 +40,7 @@ jobs:
         mvn -version
 
     - name: Build with Maven
-      run: mvn clean package -DskipTests
+      run: mvn clean compile -e -X
       env:
         JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
 
